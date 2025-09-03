@@ -1,11 +1,45 @@
 #importacion de libreria
 import tkinter as tk
 from tkinter import ttk,messagebox
+from datetime import datetime
 
 #crear ventana principal
 ventana_principal=tk.Tk()
 ventana_principal.title("libro de paciente y doctores")
-ventana_principal.geometry("400x600")
+ventana_principal.geometry("700x560")
+
+# funcion para enmascarar fecha
+def enmascarar_fecha(texto):
+    limpio =''.join(filter(str.isdigit, texto))
+    formato_final=""
+    
+    if len(limpio)>8:
+        limpio=limpio[:8]
+        
+    if len(limpio)>4:
+        formato_final=f"{limpio[:2]}-{limpio[2:4]}-{limpio[4:]}"
+        
+    elif len(limpio):
+        formato_final = f"{limpio[:2]}-{limpio[2:]}"
+        
+    else:
+        formato_final = limpio
+    
+    
+    if fechaN.get()!=formato_final:
+        fechaN.delete(0,tk.END)
+        fechaN.insert(0, formato_final)
+        
+    if len(fechaN.get())==10:
+        fecha_actual = datetime.now().date()
+        fecha_nacimiento = datetime.strptime(fechaN.get(),"%d-%m-%Y").date()
+        edad=fecha_actual.year-fecha_nacimiento.year 
+        edadVar.set(edad)
+    else:
+        edadVar.set("")
+
+    return True
+
 
 #crear contenedor notebook
 pestañas=ttk.Notebook(ventana_principal)
@@ -31,13 +65,15 @@ nombreP.grid(row=0, column=1, sticky="w", pady=5, padx=5)
 #fecha de nacimiento
 labelFechaN=tk.Label(frame_pacientes, text="Fecha de Nacimiento")
 labelFechaN.grid(row=1,column=0, sticky="w", pady=5, padx=5)
-fechaN=tk.Entry(frame_pacientes)
+validacion_fecha = ventana_principal.register(enmascarar_fecha)
+fechaN=ttk.Entry(frame_pacientes, validate="key", validatecommand= (validacion_fecha, '%P'))
 fechaN.grid(row=1, column=1, sticky="w", pady=5, padx=5)
 
 #edad(readol)
 labelEdad=tk.Label(frame_pacientes, text="Edad")
 labelEdad.grid(row=2,column=0, sticky="w", pady=5, padx=5)
-edad=tk.Entry(frame_pacientes, state="readonly")
+edadVar=tk.StringVar()
+edad=tk.Entry(frame_pacientes, textvariable= edadVar, state="readonly")
 edad.grid(row=2, column=1, sticky="w", pady=5, padx=5)
 
 #genero
@@ -176,9 +212,6 @@ treeview.grid(row=6, column=0, columnspan=2, padx=5, pady=10, sticky="nsew")
 #Scrollbar vertical
 scroll_y=ttk.Scrollbar(frame_doctores, orient="vertical", command=treeview.yview)
 scroll_y.grid(row=6, column=2, sticky="nsew")
-
-
-
 
 
 
