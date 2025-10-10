@@ -1,45 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=fo, initial-scale=1.0">
-    <title>PAGINA CON FORMULARIO</title>
-</head>
-<body>
-    <Form name="FORMULARIO I">
-        Nombre: <input type="text" name="Nombre"><br>
-        Direccion: <input type="text" name="Direccion"><br>
-        Calle: <input type="text" name="Calle"><br>
-        Carnet de Identidad: <input type="text" name="Carnet" size="5" maxlength="5" value="99999"><br>
-        <br>
-        Sintomas:
-        <br>
-        <input type="checkbox" name="Fiebre" value="Fiebre" checked>Fiebre<br>
-        <input type="checkbox" name="Mareos" value="Mareos">Mareos<br>
-        <input type="checkbox" name="Dolor de cabeza" value="Dolor de cabeza">Dolor de cabeza<br>
+<html>
+    <head>
+        <body>
+            <form >
+                COMPLETAR:
+                <BR>
+                Elija un color: <input type="color">
+                </BR>
+                escriba un mensaje
+                <br>
+                <textarea cols="53" rows="5">Por favor, escriba un mensaje aqui</textarea>
+                <br>
+                Eija una opcion:
+                <br>
+                <select name="lenguaje">
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                    <option value="Django">Django</option>
+                    <option value="html">html</option>
+                </select>
+            <br>
+                <input type="checkbox" name="1ro" value="1ro" checked>1ro
+                <input type="checkbox" name="2do" value="2do" checked>2do
+                <input type="checkbox" name="3ro" value="3ro" checked>3ro
+            <br>
+            Rellene las opciones siguientes: <br>
+            Elija una fecha: <input type="date"><br>
+            Elija un Fichero: <input type="file"><br>
+            
+            <SELECT name="multiple[]" multiple size="4">
+                <option value="1ro">1ro</option>
+                <option value="2do">2do</option>
+                <option value="3ro">3ro</option>
+                <option value="4to">4to</option>
+            </SELECT>
+            <br>
+            <input type="submit" name="Enviar"> <br>
+            <input type="reset" name="Limpiar">
 
-        Genero:
-        <br>
-        <input type="radio" name="Genero" value="Femenino">Femenino
-        <input type="radio" name="Genero" value="Masculino">Masculino
-
-        <br>
-        Seguro:
-        <SELECT name="Seguro">
-            <option value="Caja Petrolera">Caja Petrolera
-            <option value="Nacional">Caja Nacional
-            <option value="Bancaria">Caja Bancaria
-        </SELECT>
-
-        <br>
-        Direccion:
-        <textarea name="Direccion" rows="10" cols="14">
-        </textarea>
-        <br>
-
-        <input type="submit" name="Enviar"> <br>
-        Si se ha equivocado, pulse para volver a comenzar  <input type="reset" name="Limpiar">
-
-    </Form>
-</body>
+            </form>
+        </body>
+    </head>
 </html>

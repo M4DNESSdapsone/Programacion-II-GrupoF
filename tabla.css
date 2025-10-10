@@ -1,2 +1,8 @@
-body{ background-color: rgb(205, 240, 241); font-family: Verdana; margin: 10 px;}
-table{ background-color: beige; text-align: center; border: 2px solid black; padding: 10px; width: 80%; border-collapse: collapse; margin: 0 auto;}
+body{ background-color: rgb(243, 220, 226); font-family: Verdana; margin: 10 px;}
+table{ background-color: rgb(228, 193, 207); text-align: center; border: 2px solid black; padding: 10px; width: 80%; border-collapse: collapse; margin: 0 auto;}
+
+th,td{border: solid 2px palevioletred;padding: 40px;}
+thead{background-color: antiquewhite; color: antiquewhite;}
+
+tr:nth-child(even){background-color: rgb(248, 248,246);}
+tr:hover td{ background-color: rgb(209, 184, 200);color: rgb(150, 94, 120);}
